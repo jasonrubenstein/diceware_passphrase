@@ -10,7 +10,7 @@ ROLL_OF_SYMBOL = sys_rand.randrange(5,15)
 ROLL_OF_NUMBER = sys_rand.randrange(15, 35)
 ROLL_OF_TITLECASE = sys_rand.randrange(35,62)
 GENERAL_CASE = 100
-LENGTH_OF_WORDLIST_KEY = 7
+LENGTH_OF_WORDLIST_KEY = 5
 
 VALID_CASES = (
   ROLL_OF_SYMBOL,
@@ -32,7 +32,7 @@ mapper = {
   GENERAL_CASE: lambda x: x
 }
 
-WORDS_TO_GENERATE = 6
+WORDS_TO_GENERATE = 7
 PASSWORDS_TO_GENERATE = 20
 
 map_target_list = []
