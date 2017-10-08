@@ -30,6 +30,12 @@
         Using real dice to lookup entries from the list will be 
         more random than using a pseudo-random generator, as used here. 
         This is a good tool, and probably random enough. 
+        
+        Not all passwords generated will be appropriate for every use-case
+        or set of input limitations.  Generate a bunch of them and 
+        cherry-pick the ones most appropriate. 
+        
+        (Or, clone and modify this script for use)
 
 ## Example
     /PATH/TO/SCRIPT/diceware_password> python3 get_pw.py
