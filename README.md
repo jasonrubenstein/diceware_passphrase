@@ -30,3 +30,29 @@
         Using real dice to lookup entries from the list will be 
         more random than using a pseudo-random generator, as used here. 
         This is a good tool, and probably random enough. 
+
+## Example
+    /PATH/TO/SCRIPT/diceware_password> python3 get_pw.py
+    
+    ********************************************************************************
+    nearly battalion error deflation 906285
+    sloppily 013 smile elite 25017
+    hertz goldfish omit & Deferral
+    illicitly negative joystick 5814 immersion
+    browsing aloft siding disloyal overpass
+    hardcover happiest repressed cartridge procurer
+    - preteen gentile 916438 682
+    moisten gracious daughter fraying Directive
+    decade Deepen regalia cause patrol
+    motocross herbicide silicon jubilant giving
+    refried second seduce - overfull
+    motocross Corporate antidote gush eliminate
+    spoiler roundup plaster appliance illusion
+    speak multiply blush drainpipe happiest
+    repair payphone neon disdain camcorder
+    neatness playback 2076 backward reformer
+    cherisher Aflutter 21 drinkable dweeb
+    _ define moving arguable dutiful
+    catfish 165238 penknife 7021 crouch
+    decompose rice 936072 grafting sauna
+    ********************************************************************************
