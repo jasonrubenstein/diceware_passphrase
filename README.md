@@ -7,7 +7,7 @@
       -h, --help            show this help message and exit
       -w WORDS, --words WORDS
                         Number of words to generate in the password. Defaults
-                        to 5.
+                        to 7.
       -p PASSWORDS, --passwords PASSWORDS
                         Number of passwords to generate. Defaults to 20.
       -wf WORD_FILE, --word-file WORD_FILE
