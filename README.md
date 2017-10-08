@@ -1,14 +1,14 @@
 # "Diceware" passphrase Generator.
 
 ## Usage
-    usage: get_pw.py [-h] [-w WORDS] [-p passphraseS] [-wf WORD_FILE]
+    usage: get_passphrase.py [-h] [-w WORDS] [-p PASSPHRASES] [-wf WORD_FILE]
 
     optional arguments:
-      -h, --help            show this help message and exit
+      -h, --help        show this help message and exit
       -w WORDS, --words WORDS
                         Number of words to generate in the passphrase. Defaults
                         to 7.
-      -p PASSPHRASES, --passphrases passphraseS
+      -p PASSPHRASES, --passphrases PASSPHRASES
                         Number of passphrases to generate. Defaults to 20.
       -wf WORD_FILE, --word-file WORD_FILE
                         Dice Word File. Defaults to ./eff_large_wordlist.txt.
@@ -17,7 +17,7 @@
 ## Notes
     Files:
         eff_large_wordlist.txt
-        get_pw.py
+        get_passphrase.py
 
     Description:
         "Diceware" implementation of random passphrases generator.

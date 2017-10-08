@@ -90,7 +90,7 @@ if __name__ == "__main__":
     description = '''
         Files:
           eff_large_wordlist.txt
-          get_pw.py
+          get_passphrase.py
 
         Description:
          "Diceware" implementation of random passphrases generator.
