@@ -33,7 +33,7 @@ mapper = {
 }
 
 WORDS_TO_GENERATE = 7
-passphraseS_TO_GENERATE = 20
+PASSPHRASES_TO_GENERATE = 20
 
 map_target_list = []
 for i in range(100):
@@ -112,8 +112,8 @@ if __name__ == "__main__":
         "-p",
         "--passphrases",
         type=int,
-        default=passphraseS_TO_GENERATE,
-        help="Number of passphrases to generate. Defaults to {}.".format(passphraseS_TO_GENERATE),
+        default=PASSPHRASES_TO_GENERATE,
+        help="Number of passphrases to generate. Defaults to {}.".format(PASSPHRASES_TO_GENERATE),
       )
     parser.add_argument(
                 "-wf",
