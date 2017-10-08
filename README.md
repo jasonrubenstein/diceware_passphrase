@@ -1,4 +1,4 @@
-# "Diceware" passphrase Generator. 
+# "Diceware" passphrase Generator.
 
 ## Usage
     usage: get_pw.py [-h] [-w WORDS] [-p passphraseS] [-wf WORD_FILE]
@@ -26,20 +26,23 @@
         of generating a number or a symbol instead of a word.
 
         It also has a probability of converting a word to Title Case.
-        
-        Using real dice to lookup entries from the list will be 
-        more random than using a pseudo-random generator, as used here. 
-        This is a good tool, and probably random enough. 
-        
+
+        Using real dice to lookup entries from the list will be
+        more random than using a pseudo-random generator, as used here.
+        This is a good tool, and probably random enough for many use cases.
+        If this is not good enough, follow the guidance here:
+        http://world.std.com/~reinhold/diceware.html
+
         Not all passphrases generated will be appropriate for every use-case
-        or set of input limitations.  Generate a bunch of them and 
-        cherry-pick the ones most appropriate. 
-        
+        or set of input limitations.  Generate a bunch of them and
+        cherry-pick the ones most appropriate.
+
         (Or, clone and modify this script for use)
+
 
 ## Example
     /PATH/TO/SCRIPT/diceware_passphrase> python3 get_pw.py
-    
+
     ********************************************************************************
     nearly battalion error deflation 906285
     sloppily 013 smile elite 25017
