@@ -39,6 +39,14 @@
 
         (Or, clone and modify this script for use)
 
+#### Nota Bene...
+
+According to the creator of diceware:     
+
+> Generating truly random numbers using a computer is very tricky. The so-called random number generators that come with most programming libraries are nowhere near good enough. For most users dice is by far a better way to select passphrase words.
+
+> However if you do know what you are doing, have access to a strong method for generating random numbers (e.g. Java's secureRandom class) and really need to generate passphrases using a computer, then, to insure a uniform distribution of words, it is best to using a list of words that is a whole power of two in length. I have created such a list and it is available at: http://world.std.com/~reinhold/diceware8k.txt. There is also a version designed for the C programming language. http://world.std.com/~reinhold/diceware8k.c The C version can easily be adapted for Java and many other programming languages.ttp://world.std.com/~reinhold/diceware8k.c The C version can easily be adapted for Java and many other programming languages.
+
 
 ## Example
     /PATH/TO/SCRIPT/diceware_passphrase> python3 get_pw.py
