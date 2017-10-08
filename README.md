@@ -1,15 +1,15 @@
-# "Diceware" Password Generator. 
+# "Diceware" passphrase Generator. 
 
 ## Usage
-    usage: get_pw.py [-h] [-w WORDS] [-p PASSWORDS] [-wf WORD_FILE]
+    usage: get_pw.py [-h] [-w WORDS] [-p passphraseS] [-wf WORD_FILE]
 
     optional arguments:
       -h, --help            show this help message and exit
       -w WORDS, --words WORDS
-                        Number of words to generate in the password. Defaults
+                        Number of words to generate in the passphrase. Defaults
                         to 7.
-      -p PASSWORDS, --passwords PASSWORDS
-                        Number of passwords to generate. Defaults to 20.
+      -p PASSPHRASES, --passphrases passphraseS
+                        Number of passphrases to generate. Defaults to 20.
       -wf WORD_FILE, --word-file WORD_FILE
                         Dice Word File. Defaults to ./eff_large_wordlist.txt.
 
@@ -20,7 +20,7 @@
         get_pw.py
 
     Description:
-        "Diceware" implementation of random passwords generator.
+        "Diceware" implementation of random passphrases generator.
         In addition to generating a word from a wordlist,
         the program has a probability
         of generating a number or a symbol instead of a word.
@@ -31,14 +31,14 @@
         more random than using a pseudo-random generator, as used here. 
         This is a good tool, and probably random enough. 
         
-        Not all passwords generated will be appropriate for every use-case
+        Not all passphrases generated will be appropriate for every use-case
         or set of input limitations.  Generate a bunch of them and 
         cherry-pick the ones most appropriate. 
         
         (Or, clone and modify this script for use)
 
 ## Example
-    /PATH/TO/SCRIPT/diceware_password> python3 get_pw.py
+    /PATH/TO/SCRIPT/diceware_passphrase> python3 get_pw.py
     
     ********************************************************************************
     nearly battalion error deflation 906285

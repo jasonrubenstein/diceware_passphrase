@@ -33,7 +33,7 @@ mapper = {
 }
 
 WORDS_TO_GENERATE = 7
-PASSWORDS_TO_GENERATE = 20
+passphraseS_TO_GENERATE = 20
 
 map_target_list = []
 for i in range(100):
@@ -93,7 +93,7 @@ if __name__ == "__main__":
           get_pw.py
 
         Description:
-         "Diceware" implementation of random passwords generator.
+         "Diceware" implementation of random passphrases generator.
          In addition to generating a word from a wordlist,
          the program has a probability
          of generating a number or a symbol instead of a word.
@@ -106,14 +106,14 @@ if __name__ == "__main__":
       "--words",
       type=int,
       default=WORDS_TO_GENERATE,
-      help="Number of words to generate in the password. Defaults to {}.".format(WORDS_TO_GENERATE),
+      help="Number of words to generate in the passphrase. Defaults to {}.".format(WORDS_TO_GENERATE),
     )
     parser.add_argument(
         "-p",
-        "--passwords",
+        "--passphrases",
         type=int,
-        default=PASSWORDS_TO_GENERATE,
-        help="Number of passwords to generate. Defaults to {}.".format(PASSWORDS_TO_GENERATE),
+        default=passphraseS_TO_GENERATE,
+        help="Number of passphrases to generate. Defaults to {}.".format(passphraseS_TO_GENERATE),
       )
     parser.add_argument(
                 "-wf",
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     divvy = ''.join(['*' for x in range(80)])
     print(' ')
     print(divvy)
-    for j in range(args.passwords):
+    for j in range(args.passphrases):
       pw = get_pw(args.words)
       print(pw)
     print(divvy)
