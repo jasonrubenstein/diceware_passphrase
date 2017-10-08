@@ -61,7 +61,7 @@ def get_word():
 
     for i in range(LENGTH_OF_WORDLIST_KEY):
         coinflip = sys_rand.choice((0,1))
-        val = sys_rand.gauss(0.5, 0.5).as_integer_ratio()[coinflip] % 6
+        val = sys_rand.random().as_integer_ratio()[coinflip] % 6
         diceroll.append(str(val))
 
     key = ''.join(diceroll)
