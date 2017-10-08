@@ -80,9 +80,12 @@ def get_pw(num_words):
 
 if __name__ == "__main__":
     description = '''
+
+        N.b., See http://world.std.com/~reinhold/dicewarefaq.html#computer for context.
+
         Files:
           diceware8k.txt
-          get_passphrase.py
+          get_passphrase_no_dice.py
 
         Description:
          "Diceware" implementation of random passphrases generator.
