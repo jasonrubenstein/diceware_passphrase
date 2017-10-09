@@ -22,6 +22,9 @@ VALID_CASES = (
 WORD_FILE = "./eff_large_wordlist.txt"
 WORD_DICT = {}
 
+NO_DICE_WORD_FILE = "./diceware8k.txt"
+NO_DICE_WORD_LIST = []
+
 nums = tuple(map(str, (0,1,2,3,4,5,6,7,8,9)))
 syms = ('&', '.', '-', '$', '_')
 
@@ -52,6 +55,22 @@ def _create_word_dict(word_file):
     WORD_DICT = {x[0]:x[1] for x in [e.split("\t") for e in words] if len(x) == 2}
 
 
+def _create_no_dice_word_list(word_file):
+    global NO_DICE_WORD_LIST
+    fd = open(word_file, 'r')
+    raw = fd.read()
+    words = raw.split('\n')
+    NO_DICE_WORD_LIST = [w for w in words if w]
+
+
+def _probable_chaos(werd):
+    coinflip = sys_rand.choice((0,1))
+    d100 = sys_rand.gauss(0.5, 0.5).as_integer_ratio()[coinflip] % 100
+    probability_case = map_target_list[d100]
+    werd = mapper.get(probability_case, lambda x: None)(werd)
+    return werd
+
+
 def get_word():
     '''
         Gets a word from the dice-word-list (via 5xd6), and rolls d100 to
@@ -66,22 +85,35 @@ def get_word():
 
     key = ''.join(diceroll)
     werd = WORD_DICT[key]
-
-    coinflip = sys_rand.choice((0,1))
-    d100 = sys_rand.gauss(0.5, 0.5).as_integer_ratio()[coinflip] % 100
-    probability_case = map_target_list[d100]
-    werd = mapper.get(probability_case, lambda x: None)(werd)
+    werd = _probable_chaos(werd)
 
     return werd
 
 
-def get_pw(num_words):
+def get_word_no_dice():
+    '''
+        Gets a word from the 8k word list, and rolls d100 to
+        find the probability of a mutation.
+    '''
+    werd = sys_rand.choice(NO_DICE_WORD_LIST)
+    werd = _probable_chaos(werd)
+
+    return werd
+
+
+def get_pw(num_words, no_dice):
     if not WORD_DICT:
         _create_word_dict(WORD_FILE)
 
+    word_getter = get_word
+    if no_dice:
+        word_getter = get_word_no_dice
+        if not NO_DICE_WORD_LIST:
+            _create_no_dice_word_list(NO_DICE_WORD_FILE)
+
     pw_list = []
     for j in range(num_words):
-      pw_list.append(get_word())
+      pw_list.append(word_getter())
 
     return ' '.join(pw_list)
 
@@ -116,12 +148,20 @@ if __name__ == "__main__":
         help="Number of passphrases to generate. Defaults to {}.".format(PASSPHRASES_TO_GENERATE),
       )
     parser.add_argument(
-                "-wf",
-                "--word-file",
-                type=str,
-                default=WORD_FILE,
-                help="Dice Word File. Defaults to {}.".format(WORD_FILE),
-              )
+        "-wf",
+        "--word-file",
+        type=str,
+        default=WORD_FILE,
+        help="Dice Word File. Defaults to {}.".format(WORD_FILE),
+      )
+    parser.add_argument(
+      "-nd",
+      "--no_dice",
+      default=False,
+      action='store_true',
+      help='''true | false. Executes a 'no dice' version.
+Executes a uniform distribution random get from a list of 2**13 words.''',
+    )
     args = parser.parse_args()
 
     _create_word_dict(args.word_file)
@@ -130,7 +170,7 @@ if __name__ == "__main__":
     print(' ')
     print(divvy)
     for j in range(args.passphrases):
-      pw = get_pw(args.words)
+      pw = get_pw(args.words, args.no_dice)
       print(pw)
     print(divvy)
     print(' ')
