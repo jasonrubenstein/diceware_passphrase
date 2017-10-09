@@ -57,7 +57,7 @@ To that end, an alternate script & file are included: `get_passphrase_no_dice.py
 
 
 ## Example
-    /PATH/TO/SCRIPT/diceware_passphrase> python3 get_pw.py
+    /PATH/TO/SCRIPT/diceware_passphrase> python3 get_passphrase.py
 
     ********************************************************************************
     job profane 87963 crawling 0789 disparate covenant
