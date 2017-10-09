@@ -13,7 +13,7 @@
                             Number of passphrases to generate. Defaults to 20.
       -wf WORD_FILE, --word-file WORD_FILE
                             Dice Word File. Defaults to ./eff_large_wordlist.txt.
-      -nd, --no_dice        true | false. Executes a 'no dice' version; a
+      -nd, --no_dice        Executes a 'no dice' version; a
                             uniform distribution random selection from a list
                             of 2**13 words.
 
