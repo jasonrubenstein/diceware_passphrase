@@ -6,14 +6,14 @@ from random import SystemRandom
 
 sys_rand = SystemRandom(os.urandom(256))
 
-ROLL_OF_SYMBOL = sys_rand.randrange(5,15)
-ROLL_OF_NUMBER = sys_rand.randrange(15, 35)
+ROLL_OF_SYMBOL = sys_rand.randrange(19,32)
+
+ROLL_OF_NUMBER = sys_rand.randrange(5, 35)
 ROLL_OF_TITLECASE = sys_rand.randrange(35,62)
 GENERAL_CASE = 100
 LENGTH_OF_WORDLIST_KEY = 5
 
-VALID_CASES = (
-  ROLL_OF_SYMBOL,
+VALID_CASES_WORD_CHAOS = (
   ROLL_OF_NUMBER,
   ROLL_OF_TITLECASE,
   GENERAL_CASE,
@@ -26,10 +26,9 @@ NO_DICE_WORD_FILE = "./diceware8k.txt"
 NO_DICE_WORD_LIST = []
 
 nums = tuple(map(str, (0,1,2,3,4,5,6,7,8,9)))
-syms = ('&', '.', '-', '$', '_')
+syms = ('&', '.', '-', '$', '_', '@', '!')
 
 mapper = {
-  ROLL_OF_SYMBOL: lambda x: sys_rand.choice(syms),
   ROLL_OF_NUMBER: lambda x: ''.join(sys_rand.sample(nums, sys_rand.randint(2,7))),
   ROLL_OF_TITLECASE: lambda x: x.title(),
   GENERAL_CASE: lambda x: x
@@ -40,11 +39,24 @@ PASSPHRASES_TO_GENERATE = 20
 
 map_target_list = []
 for i in range(100):
-    for k in VALID_CASES:
+    for k in VALID_CASES_WORD_CHAOS:
         if i <= k:
             map_target_list.append(k)
             break
             map_target_list.append(GENERAL_CASE)
+
+
+def _roll_d100():
+    coinflip = sys_rand.choice((0,1))
+    return sys_rand.gauss(0.5, 0.5).as_integer_ratio()[coinflip] % 100
+
+
+def _insert_symbol(passphrase):
+    sym = sys_rand.choice(syms)
+    indeces = [i for i,char in enumerate(passphrase) if char.isspace()]
+    idx = sys_rand.choice(indeces)
+    new_passphrase = "{}{}{}".format(passphrase[:idx], sym, passphrase[idx+1:])
+    return new_passphrase
 
 
 def _create_word_dict(word_file):
@@ -64,8 +76,7 @@ def _create_no_dice_word_list(word_file):
 
 
 def _probable_chaos(werd):
-    coinflip = sys_rand.choice((0,1))
-    d100 = sys_rand.gauss(0.5, 0.5).as_integer_ratio()[coinflip] % 100
+    d100 = _roll_d100()
     probability_case = map_target_list[d100]
     werd = mapper.get(probability_case, lambda x: None)(werd)
     return werd
@@ -114,9 +125,12 @@ def get_pw(num_words, no_dice):
     pw_list = []
     for j in range(num_words):
       pw_list.append(word_getter())
+    passphrase =  ' '.join(pw_list)
 
-    return ' '.join(pw_list)
+    if _roll_d100() <= ROLL_OF_SYMBOL:
+        passphrase = _insert_symbol(passphrase)
 
+    return passphrase
 
 if __name__ == "__main__":
     description = '''
