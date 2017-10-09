@@ -53,7 +53,7 @@ According to the creator of diceware:
 
 > However if you do know what you are doing, have access to a strong method for generating random numbers (e.g. Java's secureRandom class) and really need to generate passphrases using a computer, then, to insure a uniform distribution of words, it is best to using a list of words that is a whole power of two in length. I have created such a list and it is available at: http://world.std.com/~reinhold/diceware8k.txt. There is also a version designed for the C programming language. http://world.std.com/~reinhold/diceware8k.c The C version can easily be adapted for Java and many other programming languages.ttp://world.std.com/~reinhold/diceware8k.c The C version can easily be adapted for Java and many other programming languages.
 
-To that end, an alternate script & file are included: `get_passphrase_no_dice.py` and `diceware8k.txt`
+To that end, a command-line option for "no dice" (-nd) & file are included: `diceware8k.txt`
 
 
 ## Example
