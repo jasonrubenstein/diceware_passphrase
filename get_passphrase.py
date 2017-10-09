@@ -53,8 +53,8 @@ def _roll_d100():
 
 def _insert_symbol(passphrase):
     sym = sys_rand.choice(syms)
-    indeces = [i for i,char in enumerate(passphrase) if char.isspace()]
-    idx = sys_rand.choice(indeces)
+    indices = [i for i,char in enumerate(passphrase) if char.isspace()]
+    idx = sys_rand.choice(indices)
     new_passphrase = "{}{}{}".format(passphrase[:idx], sym, passphrase[idx+1:])
     return new_passphrase
 
