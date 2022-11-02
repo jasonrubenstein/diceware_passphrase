@@ -28,7 +28,7 @@ nums = tuple(map(str, (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)))
 syms = ("&", ".", "-", "$", "_", "@", "!")
 
 mapper = {
-    ROLL_OF_NUMBER: lambda: "".join(sys_rand.sample(nums, sys_rand.randint(2, 7))),
+    ROLL_OF_NUMBER: lambda _: "".join(sys_rand.sample(nums, sys_rand.randint(2, 7))),
     ROLL_OF_TITLECASE: lambda x: x.title(),
     GENERAL_CASE: lambda x: x,
 }
@@ -44,7 +44,6 @@ for i in range(100):
             break
         else:
             map_target_list.append(GENERAL_CASE)
-breakpoint()
 
 
 def _roll_d100():
