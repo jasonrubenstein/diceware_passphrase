@@ -7,13 +7,11 @@ sys_rand = SystemRandom(os.urandom(1024))
 
 ROLL_OF_SYMBOL = sys_rand.randrange(19, 32)
 
-ROLL_OF_NUMBER = sys_rand.randrange(5, 35)
 ROLL_OF_TITLECASE = sys_rand.randrange(35, 62)
 GENERAL_CASE = 100
 LENGTH_OF_WORDLIST_KEY = 5
 
 VALID_CASES_WORD_CHAOS = (
-    ROLL_OF_NUMBER,
     ROLL_OF_TITLECASE,
     GENERAL_CASE,
 )
@@ -28,7 +26,6 @@ nums = tuple(map(str, (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)))
 syms = ("&", ".", "-", "$", "_", "@", "!")
 
 mapper = {
-    ROLL_OF_NUMBER: lambda _: "".join(sys_rand.sample(nums, sys_rand.randint(2, 7))),
     ROLL_OF_TITLECASE: lambda x: x.title(),
     GENERAL_CASE: lambda x: x,
 }
